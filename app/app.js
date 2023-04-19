@@ -11,18 +11,22 @@ const app = new Koa();
 // 跨域
 app.use(cors());
 // 解析requestBody
-app.use(koaBody());
+app.use(
+  koaBody({
+    multipart: true, // 启用文件上传支持
+  })
+);
 // 记录日志
 app.use(logMark());
 // 鉴权,配置不经过校验的接口
-app.use(
-  authenticate({
-    // 不需要经过校验的接口
-    notInclude: ["/api/login", "/api/register"],
-    // 需要校验的接口
-    need: "/api",
-  })
-);
+// app.use(
+//   authenticate({
+//     // 不需要经过校验的接口
+//     notInclude: ["/api/login", "/api/register"],
+//     // 需要校验的接口
+//     need: "/api",
+//   })
+// );
 // 路由
 app.use(router.routes(), router.allowedMethods());
 // 静态文件
