@@ -1,6 +1,6 @@
 const { log } = require("../utils/logger");
 
-// 日志记录中间件,根据环境去判断
+// 日志记录中间件,可以自由选择记录哪些东西
 const logMrak = (options) => {
   return async (ctx, next) => {
     const startTime = Date.now();

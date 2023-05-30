@@ -1,14 +1,20 @@
 const sequelize = require("../utils/sequelize");
 const { DataTypes } = require("sequelize");
 const user = sequelize.define("User", {
-  firstName: {
+  email: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  lastName: {
+  passWord: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  name: {
     type: DataTypes.STRING,
   },
-  sex: DataTypes.STRING,
+  icon: {
+    type: DataTypes.STRING,
+  },
 });
 
 user.sync({ alter: true }).then((res) => {

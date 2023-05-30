@@ -9,8 +9,8 @@ const router = new Router({
 
 router
   .get("/", User.test)
-  .get("/login", User.test)
-  .get("/register", User.test)
+  .post("/login", User.login)
+  .get("/register", User.register)
   .get("/show", User.show)
   .post("/add", User.create)
   .post("/upload", File.save);

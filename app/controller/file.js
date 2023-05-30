@@ -7,8 +7,11 @@ class File {
     const filePath = path.join(__dirname, "../static", file.originalFilename);
     const writer = fs.createWriteStream(filePath);
     reader.pipe(writer);
-    // console.log(ctx.request.files.file);
-    ctx.body = "上传成功";
+    ctx.body = {
+      code: 0,
+      data: null,
+      message: "上传成功",
+    };
   };
 }
 

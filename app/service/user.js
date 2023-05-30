@@ -4,6 +4,10 @@ class User {
   static query = () => {
     return user.findAll();
   };
+
+  static queryByEmail = (email) => {
+    return user.queryOne({ email });
+  };
   static add = () => {
     return user.create({
       firstName: `王${index++}`,
